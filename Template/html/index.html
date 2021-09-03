@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'insert.css'%}">
+
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div align='center'>
+    <br><br>
+
+
+
+
+    <h1>Student Information </h1><br>
+    <table border='2'>
+      <thead>
+
+        <th>Student Number</th>
+        <th>Student Name</th>
+        <th>Student Age</th>
+        <th>Student Address</th>
+        <th>Student contactNo</th>
+        <th>Date</th>
+        <th>department</th>
+        <th>Actions</th>
+      </thead>
+      {% for std in student %}
+      <tr>
+
+        <td>{{std.no}}</td>
+        <td>{{std.name}}</td>
+        <td>{{std.age}}</td>
+        <td>{{std.address}}</td>
+        <td>{{std.contactno}}</td>
+        <td>{{std.date}}</td>
+        <td>{{std.department}}</td>
+      <td>
+      <a href="/update/{{std.id}}">Update</a>
+      <a href="/delete/{{std.id}}">Delete</a>
+
+      </td>
+      </tr>
+      {% endfor %}
+    </table><br><br><br>
+    <a href="/insert" class='btn btn-primary btn-lg'>Do you want to insert New Student Record</a>
+
+  </div>
+  </body>
+</html>
